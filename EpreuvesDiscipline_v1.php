@@ -5,8 +5,10 @@
 
     echo ("
           <form action=\"EpreuvesDiscipline_v1_action.php\" method=\"POST\">
-          <label for=\"inp_discipline\">Veuillez saisir une discipline :</label>
-          <input type=\"text\" name=\"discipline\" />
+          <label for=\"inp_discipline\">Veuillez choisir une discipline :</label>
+          <select name=\"inp_discipline\">
+			<option value=\"Discipline 1\">Pétanque</option>
+          </select>
           <br /><br />
           <input type=\"submit\" value=\"Valider\" />
           <input type=\"reset\" value=\"Annuler\" />

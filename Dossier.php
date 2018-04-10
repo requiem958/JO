@@ -6,7 +6,7 @@
 	// construction de la requete
 	$requete = ("
 		SELECT nDossier
-		FROM JO_INF245.LesDossiers
+		FROM JO.LesDossiers
 		ORDER BY nDossier
 	");
 

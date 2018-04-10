@@ -9,7 +9,7 @@
 	// construction de la requete
  	$requete = ("
 		SELECT nomE, forme, categorie, to_char(dateEpreuve,'Day, DD-Month-YYYY HH:MI') as daterep
-		FROM JO_INF245.LesEpreuves
+		FROM JO.LesEpreuves
 		WHERE lower(discipline) = lower(:d)
 	");
 

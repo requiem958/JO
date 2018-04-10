@@ -10,7 +10,7 @@
 	// construction de la requete
 	$requete = ("
 		SELECT dateEmission, nEpreuve, nomE, forme, categorie, to_char(dateEpreuve, 'Day, DD Month, YYYY'), count(*)
-		FROM JO_INF245.LesDossiers natural join JO_INF245.LesBillets natural join JO_INF245.LesEpreuves
+		FROM JO.LesDossiers natural join JO.LesBillets natural join JO.LesEpreuves
 		WHERE nDossier = :n
         group by dateEmission, nEpreuve, nomE, forme, categorie, dateEpreuve
         order by 1
@@ -59,7 +59,6 @@
                 $dateE = oci_result($curseur, 6) ;
                 $nbPlaces = oci_result($curseur, 7) ;
                 echo "<tr><td>$numE</td><td>$nomE</td><td>$formeE</td><td>$catE</td><td>$dateE</td><td>$nbPlaces</td></tr>";
-
 			} while (oci_fetch ($curseur));
 
 			echo "</table>";

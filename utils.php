@@ -1,7 +1,7 @@
 <?php
 
 	// les utilitaires pour la gestion des JO
-	putenv("ORACLE_SID=inf245");
+	putenv("ORACLE_SID=im2ag");
 
 	// les messages d'erreurs
 	function LeMessage ($codeErreur) {
