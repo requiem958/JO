@@ -10,7 +10,7 @@
 	// construction de la requete
 	$requete = ("
 		SELECT dateEmission, nEpreuve, nomE, forme, categorie, to_char(dateEpreuve, 'Day, DD Month, YYYY'), count(*)
-		FROM JO_INF245.LesDossiers natural join JO_INF245.LesBillets natural join JO_INF245.LesEpreuves
+		FROM JO_INF245.LesBillets natural join JO_INF245.LesEpreuves join lesdossiers using(ndossier)
 		WHERE nDossier = :n
         group by dateEmission, nEpreuve, nomE, forme, categorie, dateEpreuve
         order by 1

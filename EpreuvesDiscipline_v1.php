@@ -4,16 +4,29 @@
 	include('entete.php');
 
     echo ("
-          <form action=\"EpreuvesDiscipline_v1_action.php\" method=\"POST\">
+          <form action=\"EpreuvesDiscipline_action.php\" method=\"POST\">
           <label for=\"inp_discipline\">Veuillez choisir une discipline :</label>
           <select name=\"inp_discipline\">
-			<option value=\"Discipline 1\">Pétanque</option>
-          </select>
+			 <option value=\"Bobsleigh\">Bobsleigh</option>
+			 <option value=\"Combine nordique\">Combine nordique</option>
+			 <option value=\"Curling\">Curling</option>
+			 <option value=\"Hockey sur glace\">Hockey sur glace</option>
+			 <option value=\"Luge\">Luge</option>
+			 <option value=\"Patinage artistique\">Patinage artistique</option>
+			 <option value=\"Patinage de vitesse\">Patinage de vitesse</option>
+			 <option value=\"Saut a ski\">Saut a ski</option>
+			 <option value=\"Skeleton\">Skeleton</option>
+			 <option value=\"Ski alpin\">Ski alpin</option>
+			 <option value=\"Ski de fond\">Ski de fond</option>
+			 <option value=\"Snowboard\">Snowboard</option>
+			 <option value=\"Sports de glace\">Sports de glace</option> 
+			</select>
           <br /><br />
           <input type=\"submit\" value=\"Valider\" />
           <input type=\"reset\" value=\"Annuler\" />
           </form>
           ");
+          
 	// travail à réaliser
 	echo ("
 		<p class=\"work\">
