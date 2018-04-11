@@ -28,7 +28,7 @@ else {
    include ("navigation.php");
 ?>
 
-<h1>Bienvenue dans l’application JO !</h1>
+<h1>Bienvenue dans l’application JO_INF245 !</h1>
 
       <?php if(isset($_SESSION['login'])) {
          echo '<p id="identif"> Vous êtes identifié-e avec l’identifiant ', $_SESSION['login'], '. <a href="connexion.php">Changer</a>.</p>';

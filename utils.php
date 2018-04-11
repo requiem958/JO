@@ -1,6 +1,6 @@
 <?php
 
-	// les utilitaires pour la gestion des JO
+	// les utilitaires pour la gestion des JO_INF245_INF245_INF245_INF245_INF245_INF245_INF245_INF245_INF245
 	putenv("ORACLE_SID=im2ag");
 
 	// les messages d'erreurs
@@ -13,7 +13,7 @@
 			case "connexionOK":
 				$t = 1;
 				$message= "Connexion réussie"; break;
-			case "majOK":
+			case "majOk":
 				$t = 1;
 				$message = "La mise à jour a été effectuée"; break ;
 			case "disciplineconnue":

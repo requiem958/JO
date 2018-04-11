@@ -44,7 +44,7 @@
 		}
 		else {
 
-			echo LeMessage ("majOK") ;
+			echo LeMessage ("majOk") ;
 			// terminaison de la transaction : validation
 			oci_commit ($lien) ;
 

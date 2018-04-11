@@ -7,7 +7,7 @@
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 	<head>
-	   <title>Gestion des JO</title>
+	   <title>Gestion des JO_INF245</title>
 	   <meta charset="utf-8" />
 	   <style>
 	      h2 { text-align:left }
@@ -21,7 +21,7 @@
 
 ?>
 
-<h1> Gestion des JO </h1>
+<h1> Gestion des JO_INF245 </h1>
 
 	   <h2> Connexion à la base de données </h2>
 	   <?php

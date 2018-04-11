@@ -20,7 +20,7 @@
          <?php if(isset($titre))
             echo htmlspecialchars($titre) . ' - ';
          ?>
-         Gestion des JO
+         Gestion des JO_INF245
       </title>
      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
      <link href="style.css" rel="stylesheet" media="all" type="text/css" />
@@ -29,7 +29,7 @@
 		<?php
 			include("navigation.php");
 		?>
-		<h1> Gestion des JO </h1>
+		<h1> Gestion des JO_INF245 </h1>
 		<?php
 			if(isset($titre))
 				echo '<h2>', $titre, '</h2>';

@@ -25,7 +25,7 @@
 			// terminaison de la transaction : annulation
 			oci_rollback ($lien) ;
 		}		else {
-			echo LeMessage ("majOK") ;
+			echo LeMessage ("maj OK") ;
 			// terminaison de la transaction : validation
 			oci_commit ($lien) ;
 		}
