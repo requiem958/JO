@@ -1,16 +1,56 @@
 <?php
-
 	$titre = 'Liste des épreuves associées à un dossier donné pour une discipline donnée, et nombre de billets pour chacune';
 	include('entete.php');
-    echo ("
-          <form action=\"EpreuvesDiscipline_v3_action.php\" method=\"POST\">
-          <label for=\"inp_discipline\">Veuillez saisir une discipline :</label>
-          <input type=\"text\" name=\"discipline\" />
-          <br /><br />
-          <input type=\"submit\" value=\"Valider\" />
-          <input type=\"reset\" value=\"Annuler\" />
-          </form>
-          ");
+	
+  // construction de la requete
+	$requete = ("
+		SELECT nDossier
+		FROM LesDossiers
+		ORDER BY nDossier
+	");
+
+	// analyse de la requete et association au curseur
+	$curseur = oci_parse ($lien, $requete) ;
+	// execution de la requete
+	$ok = @oci_execute ($curseur) ;
+	// on teste $ok pour voir si oci_execute s'est bien passé
+	if (!$ok) {
+		// oci_execute a échoué, on affiche l'erreur
+		$error_message = oci_error($curseur);
+		echo "<p class=\"erreur\">{$error_message['message']}</p>";
+	}
+	else {
+		// oci_execute a réussi, on fetch sur le premier résultat
+		$res = oci_fetch ($curseur);
+		if (!$res) {
+			// il n'y a aucun résultat
+			echo "<p class=\"erreur\"><b>Aucun dossier dans la base de données</b></p>" ;
+		}
+		else {
+			// on affiche le formulaire de sélection
+			echo ("
+				<form action=\"EpreuvesDiscipline_v3_2.php\" method=\"post\">
+					<label for=\"sel_nDossier\">Sélectionnez un dossier :</label>
+					<select id=\"sel_nDossier\" name=\"nDossier\">
+			");
+			// création des options
+			do {
+
+				$nDossier = oci_result($curseur, 1);
+				echo ("<option value=\"$nDossier\">$nDossier</option>");
+
+			} while ($res = oci_fetch ($curseur));
+			echo ("
+					</select>
+					<br /><br />
+					<input type=\"submit\" value=\"Valider\" />
+					<input type=\"reset\" value=\"Annuler\" />
+				</form>
+			");
+		}
+	}
+	// on libère le curseur
+	oci_free_statement($curseur);
 	// travail à réaliser
 	echo ("
 		<p class=\"work\">
