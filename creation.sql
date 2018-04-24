@@ -42,7 +42,6 @@ create table LesEquipes(
 insert into LesEquipes (select * from JO_INF245.LesEquipes);
 
 create table LesDisciplines(
-	discipline varchar(100) check (discipline in ('Bobsleigh','Combine nordique','Curling','Hockey sur glace','Luge','Patinage artistique','Patinage de vitesse','Saut a ski','Skeleton','Ski alpin','Ski de fond','Snowboard','Sports de glace' ) ) primary key
 	);
 
 insert into LesDisciplines (select * from JO_INF245.LesDisciplines);
