@@ -15,21 +15,27 @@
 		}
 		else{
 			$last_num = oci_result($curseur1,1);
+			$num = oci_result($curseur1,1);
+			$date = oci_result($curseur1,2);
+			echo "<p>Dossier n°".$num." émis à la date du : ".$date."\n";
+			echo "<table><tr><th>N°Billet</th><th>N°Epreuve</th><th>Nom Epreuve</th><th>dateEpreuve</th></tr>";
 			do {
 				$num = oci_result($curseur1,1);
 				$date = oci_result($curseur1,2);
-				$nBillet = oci_result($curseur2, 1) ;
-				$nEpreuve = oci_result($curseur2, 2) ;
-				$nomE = oci_result($curseur2, 3) ;
-				$dateE = oci_result($curseur2, 4) ;
+				$nBillet = oci_result($curseur1, 1) ;
+				$nEpreuve = oci_result($curseur1, 2) ;
+				$nomE = oci_result($curseur1, 3) ;
+				$dateE = oci_result($curseur1, 4) ;
 				if ($num != $last_num)
 				{
-					echo "</table></p>\n<p>Dossier n°".$num." émis à la date du : ".$date."\n";
+					echo "</table></p>";
+					echo "<p>Dossier n°".$num." émis à la date du : ".$date."\n";
 					echo "<table><tr><th>N°Billet</th><th>N°Epreuve</th><th>Nom Epreuve</th><th>dateEpreuve</th></tr>";
 					$last_num = $num;
 				}
 				echo "<tr><td>$nBillet</td><td>$nEpreuve</td><td>$nomE</td><td>$dateE</td></tr>\n";
 			}while(oci_fetch($curseur1));
+		echo "</table></p>\n";
 		}
 	}
 	include('pied.php');
