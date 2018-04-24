@@ -42,6 +42,7 @@ create table LesEquipes(
 insert into LesEquipes (select * from JO_INF245.LesEquipes);
 
 create table LesDisciplines(
+	discipline varchar(100) primary key
 	);
 
 insert into LesDisciplines (select * from JO_INF245.LesDisciplines);
