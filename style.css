@@ -3,7 +3,7 @@ html {
  padding: 0;
  font-family: Arial, sans-serif;
  background-color: #008FFF; /* couleur pour ceux qui ne comprennent pas les dégradés CSS sans prefixe */
- background: linear-gradient(#008FFF, #F00011) fixed;
+ background: linear-gradient(#008FFF, #FFFFFF) fixed;
  -moz-tab-size:3;
  -webkit-tab-size:3;
  tab-size:3;

@@ -3,7 +3,7 @@
 	include('entete.php');
 	// construction des requêtes
 	$requete1 = "INSERT INTO LesDisciplines values ('Bob')";
-	$requete2 = "INSERT INTO LesEpreuves values (120, 'Bob a 2', 'par equipe', 'Bob', 'feminin', 2, to_date('29-02-2016 20:00', 'DD-MM-YYYY HH24:MI'))";
+	$requete2 = "INSERT INTO LesEpreuves values (120, 'Bob a 2', 'par equipe', 'Bob', 'feminin', 2, to_date('29-02-2016 20:00', 'DD-MM-YYYY HH24:MI'))"//il faut ajouter le prix 50)";
 	// analyse de la requete 1 et association au curseur
 	$curseur = oci_parse ($lien, $requete1) ;
 	// execution de la requete
