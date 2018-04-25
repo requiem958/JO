@@ -1,6 +1,7 @@
 <?php
-session_start;
-	// récupération de la catégorie
+session_start();
+	$nDossier =  $_SESSION['nDossier'] ;
+		// récupération de la catégorie
 	$discipline = $_POST['inp_discipline'];
 	$titre = "Liste des épreuves associées au dossier $nDossier pour la discipline $discipline, et nombre de billets pour chacune";
 	include('entete.php');

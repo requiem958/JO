@@ -1,10 +1,10 @@
 <?php
-session_start;
+session_start();
 	// récupération des variables
 	$nDossier = $_POST['nDossier'];
+	$_SESSION['nDossier']=$nDossier;
 	$titre = "Discpline liée au dossier $nDossier";
 	include('entete.php');
-
 	// construction de la requete
 	$requete = ("
 		SELECT  distinct discipline FROM JO_INF245.LesBillets natural join JO_INF245.LesEpreuves join lesdossiers using(ndossier) WHERE nDossier = :n
