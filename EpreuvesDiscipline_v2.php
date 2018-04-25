@@ -7,8 +7,6 @@
 	");
 	// analyse de la requete et association au curseur
 	$curseur = oci_parse ($lien, $requete) ;
-	// affectation de la variable
-	oci_bind_by_name ($curseur,':d', $d);
 	// execution de la requete
 $ok = @oci_execute ($curseur) ;
 	// on teste $ok pour voir si oci_execute s'est bien passé
