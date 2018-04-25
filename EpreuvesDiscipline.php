@@ -7,7 +7,7 @@
 	echo ("
 		<form action=\"EpreuvesDiscipline_action.php\" method=\"POST\">
 			<label for=\"inp_discipline\">Veuillez saisir une discipline :</label>
-			<input type=\"text\" name=\"discipline\" />
+			<input type=\"text\" name=\"inp_discipline\" />
 			<br /><br />
 			<input type=\"submit\" value=\"Valider\" />
 			<input type=\"reset\" value=\"Annuler\" />

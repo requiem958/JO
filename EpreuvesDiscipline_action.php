@@ -7,10 +7,10 @@
 
 	// construction de la requete
 	$requete = ("
-SELECT nepreuve, nome, to_char(dateepreuve, 'Day, DD-MM-YYYY'), count(*)
-	FROM JO_INF245.LesEpreuves E natural join JO_INF245.LesBillets B join Lesdossiers using (ndossier)
-	WHERE nDossier = 2 and lower(discipline) = lower(:n)
-	group by nepreuve, nome, dateepreuve
+SELECT nepreuve, nome, to_char(dateepreuve, 'Day, DD-MM-YYYY'), count(*) 
+	FROM LesBillets B natural join Lesepreuves B join Lesdossiers using (ndossier) 	
+	WHERE nDossier = 2 and lower(discipline) = lower(:n)  
+	group by nepreuve, nome, dateepreuve 
 	");
 	// analyse de la requete et association au curseur
 	$curseur = oci_parse ($lien, $requete) ;
