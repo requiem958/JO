@@ -103,6 +103,11 @@
 				oci_bind_by_name($curseur, ':numS', $nvNum);
 				oci_bind_by_name($curseur, ':nLog', $_SESSION['nLog']);
 				oci_bind_by_name($curseur, ':nBat', $_SESSION['nomBat']);
+				echo "<p>";
+				echo $nvNum;
+				echo $_SESSION['nLog'];
+				echo $_SESSION['nomBat'];
+				echo "</p>"
 
 				// execution de la requete
 				$ok = @oci_execute ($curseur, OCI_NO_AUTO_COMMIT);
