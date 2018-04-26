@@ -54,7 +54,7 @@
 		if(!oci_fetch($curseur))
 			$nvNum = 0;
 		else
-			$nvNum = oci_result($curseur, 1);
+			$nvNum = oci_result($curseur, 1)+1;
 		oci_free_statement($curseur);
 
 		$curseur = oci_parse($lien, $requeteInsertionSportif);
