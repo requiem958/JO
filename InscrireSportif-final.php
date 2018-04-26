@@ -57,7 +57,7 @@
 			$nvNum = oci_result($curseur, 1);
 		oci_free_statement($curseur);
 
-		$curseur = oci_parse($lin, $requeteInsertionSportif);
+		$curseur = oci_parse($lien, $requeteInsertionSportif);
 
 		oci_bind_by_name($curseur, ':num', $nvNum);
 		oci_bind_by_name($curseur, ':nom', $_SESSION['nomS']);
