@@ -104,9 +104,9 @@
 				oci_bind_by_name($curseur, ':nLog', $_SESSION['nLog']);
 				oci_bind_by_name($curseur, ':nBat', $_SESSION['nomBat']);
 				echo "<p>";
-				echo $nvNum."<br/>";
-				echo $_SESSION['nLog']."<br/>";
-				echo $_SESSION['nomBat']."<br/>";
+				echo $nvNum.";";
+				echo $_SESSION['nLog'].";";
+				echo $_SESSION['nomBat'].";";
 				echo "</p>";
 
 				// execution de la requete
