@@ -100,7 +100,7 @@
 		else{
 			$num = oci_result($curseur, 1);
 
-			$curseur = oci_parse($lien, $requeteSu);
+			$curseur = oci_parse($lien, $requeteSuppresionLocataire);
 
 			oci_bind_by_name($curseur, ':num', $num);
 
