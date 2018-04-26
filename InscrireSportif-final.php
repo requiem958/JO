@@ -46,7 +46,7 @@
 	
 	}
 	else{
-		$_SESSION['nLog'] = $_POST['numLog']
+		$_SESSION['nLog'] = $_POST['numLog'];
 		$requeteInsertionSportif	='INSERT INTO LesSportifs values (:num,:nom,:prenom,:pays,:cat,to_date(:dateNais, \'DD-MM-YYYY HH24:MI \'))';
 		$requeteInsertionEquipe		='INSERT INTO LesEquipes values (:numS,:numE)';
 		$requeteInsertionLocataire	='INSERT INTO LesLocataires values (:numS,:nLog,nBat)';
@@ -105,7 +105,7 @@
 				oci_bind_by_name($curseur, ':nBat', $_SESSION['nomBat']);
 
 				// execution de la requete
-				$ok = @oci_execute ($curseur, OCI_NO_AUTO_COMMIT) ;
+				$ok = @oci_execute ($curseur, OCI_NO_AUTO_COMMIT);
 
 				// on teste $ok pour voir si oci_execute s'est bien passé
 				if (!$ok) {
@@ -118,7 +118,7 @@
 				}
 				else {
 
-					echo LeMessage ("majOk") ;
+					echo LeMessage ("majOk");
 					// terminaison de la transaction : validation
 					oci_commit ($lien) ;
 
