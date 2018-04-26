@@ -1,10 +1,9 @@
 <?php session_start();
 	include("entete.php");
-	$_SESSION['nomBat'] = $_POST['nomBat'];
-
 	
 	if (!isset($_POST['numLog'])){
 		
+		$_SESSION['nomBat'] = $_POST['nomBat'];
 		$requete = 'with X as (
 		select nomBat, nlogement, count( nSportif) as occupe,capacite from lesLogements natural join leslocataires group by NomBat,nlogement,capacite having count( nSportif) != capacite
 		union
