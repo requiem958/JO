@@ -43,7 +43,6 @@
 				echo "</form>";
 			}
 		} //end of else
-	oci_free_statement($curseur);
 	}
 	else if(isset($_POST['nomB'])){
 		$_SESSION['nomBat']=$_POST['nomB'];
@@ -85,12 +84,11 @@
 			}
 		} //end of else
 		
-		oci_free_statement($curseur);
 	}
 	else if(isset($_POST['numLog'])){
 		$_SESSION['nLog'] = $_POST['numLog'];
 		$requeteInsertionLocataire	='INSERT INTO LesLocataires values (:numS,:nLog,:nBat)';
-		$requeteSuppresionLocataire ='DELETE FROM LesLocataires where num=:num'
+		$requeteSuppresionLocataire ='DELETE FROM LesLocataires where num=:num';
 		
 		$curseur = oci_parse($lien,'select nSportif from lesSportifs where lower(nom) = lower(:nom) and lower(prenom) = lower(:prenom)');
 		@oci_execute($curseur);
