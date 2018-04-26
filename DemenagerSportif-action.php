@@ -91,6 +91,8 @@
 		$requeteSuppresionLocataire ='DELETE FROM LesLocataires where num=:num';
 		
 		$curseur = oci_parse($lien,'select nSportif from lesSportifs where lower(nom) = lower(:nom) and lower(prenom) = lower(:prenom)');
+		oci_bind_by_name($curseur, ':nom', $_SESSION['nomS']);
+		oci_bind_by_name($curseur, ':prenom', $_SESSION['prenomS']);
 		@oci_execute($curseur);
 		if(!oci_fetch($curseur)){
 			echo "<p class=\"erreur\">Ce sportif n'existe aucunement.</p><br/>";
