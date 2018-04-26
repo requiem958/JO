@@ -5,6 +5,7 @@
 	$_SESSION['pays'] = $_POST['pays'];
 	$_SESSION['cat'] = $_POST['categorie'];
 	$_SESSION['dateNais'] = $_POST['dateNais'];
+	$_SESSION['numE']=$_POST['numE'];
 	
 	$requete = "with X as (
 	select nomBat, nlogement, count( nSportif) as occupe,capacite from lesLogements natural join leslocataires group by NomBat,nlogement,capacite having count( nSportif) != capacite

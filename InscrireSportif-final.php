@@ -80,7 +80,7 @@
 			// analyse de la requete 2 et association au curseur
 			$curseur = oci_parse ($lien, $requeteInsertionEquipe);
 			oci_bind_by_name($curseur, ':numS', $nvNum);
-			oci_bind_by_name($curseur, ':num', $_SESSION['numE']);
+			oci_bind_by_name($curseur, ':numE', $_SESSION['numE']);
 
 			// execution de la requete
 			$ok = @oci_execute ($curseur, OCI_NO_AUTO_COMMIT) ;
