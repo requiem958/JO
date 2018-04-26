@@ -45,7 +45,7 @@
 	
 	}
 	else{
-		$requeteInsertionSportif	='INSERT INTO LesSportifs values (:num,:nom,:prenom,:pays,:cat,to_date(:date, \'DD-MM-YYYY HH24:MI \')';
+		$requeteInsertionSportif	='INSERT INTO LesSportifs values (:num,:nom,:prenom,:pays,:cat,to_date(:dateNais, \'DD-MM-YYYY HH24:MI \')';
 		$requeteInsertionEquipe		='INSERT INTO LesEquipes values (:numS,:numE)';
 		$requeteInsertionLocataire	='INSERT INTO LesLocataires values (:numS,:nLog,nBat)';
 		
@@ -64,7 +64,7 @@
 		oci_bind_by_name($curseur, ':prenom', $_SESSION['prenomS']);
 		oci_bind_by_name($curseur, ':pays',$_SESSION['pays']);
 		oci_bind_by_name($curseur, ':cat', $_SESSION['cat']);
-		oci_bind_by_name($curseur, ':date', $_SESSION['dateNais']);
+		oci_bind_by_name($curseur, ':dateNais', $_SESSION['dateNais']);
 
 
 		$ok = @oci_execute ($curseur, OCI_NO_AUTO_COMMIT) ;
