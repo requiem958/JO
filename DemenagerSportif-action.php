@@ -90,7 +90,7 @@
 		$requeteInsertionLocataire	='INSERT INTO LesLocataires values (:numS,:nLog,:nBat)';
 		$requeteSuppresionLocataire ='DELETE FROM LesLocataires where num=:num';
 		
-		$curseur = oci_parse($lien,'select nSportif from lesSportifs where lower(noms) = lower(\':nom\') and lower(prenoms) = lower(\':prenom\')');
+		$curseur = oci_parse($lien,'select nSportif from lesSportifs where lower(noms) = lower(:nom) and lower(prenoms) = lower(:prenom)');
 		oci_bind_by_name($curseur, ':nom', $_SESSION['nomS']);
 		oci_bind_by_name($curseur, ':prenom', $_SESSION['prenomS']);
 		@oci_execute($curseur);
