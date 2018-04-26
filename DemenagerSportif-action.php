@@ -117,6 +117,7 @@
 			else {
 			// analyse de la requete 2 et association au curseur
 				$curseur = oci_parse ($lien, $requeteInsertionLocataire);
+				echo "<p>$num;$_SESSION['nLog'];$_SESSION['nomBat'];</p>";
 				oci_bind_by_name($curseur, ':numS', $num);
 				oci_bind_by_name($curseur, ':nLog', $_SESSION['nLog']);
 				oci_bind_by_name($curseur, ':nBat', $_SESSION['nomBat']);
