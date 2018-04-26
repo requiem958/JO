@@ -104,7 +104,7 @@
 
 			oci_bind_by_name($curseur, ':num', $num);
 
-			$ok = @oci_execute ($curseur, OCI_NO_AUTO_COMMIT) ;
+			$ok = oci_execute ($curseur, OCI_NO_AUTO_COMMIT) ;
 			// on teste $ok pour voir si oci_execute s'est bien passé
 			if (!$ok) {
 				echo("Requete Suppression");
@@ -126,7 +126,7 @@
 				oci_bind_by_name($curseur, ':nLog', $_SESSION['nLog']);
 				oci_bind_by_name($curseur, ':nBat', $_SESSION['nomBat']);
 				// execution de la requete
-				$ok = @oci_execute ($curseur, OCI_NO_AUTO_COMMIT);
+				$ok = oci_execute ($curseur, OCI_NO_AUTO_COMMIT);
 
 				// on teste $ok pour voir si oci_execute s'est bien passé
 				if (!$ok) {
