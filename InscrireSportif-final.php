@@ -4,8 +4,6 @@
 	if (!isset($_POST['numLog'])){
 		
 		$_SESSION['nomBat'] = $_POST['nomBat'];
-		echo "Nom bat : $_POST['nomBat']";
-		echo "Nom bat : $_SESSION['nomBat']";
 		$requete = 'with X as (
 		select nomBat, nlogement, count( nSportif) as occupe,capacite from lesLogements natural join leslocataires group by NomBat,nlogement,capacite having count( nSportif) != capacite
 		union
@@ -50,7 +48,7 @@
 		$_SESSION['nLog'] = $_POST['numLog'];
 		$requeteInsertionSportif	='INSERT INTO LesSportifs values (:num,:nom,:prenom,:pays,:cat,to_date(:dateNais, \'DD-MM-YYYY HH24:MI \'))';
 		$requeteInsertionEquipe		='INSERT INTO LesEquipes values (:numS,:numE)';
-		$requeteInsertionLocataire	='INSERT INTO LesLocataires values (:numS,:nLog,nBat)';
+		$requeteInsertionLocataire	='INSERT INTO LesLocataires values (:numS,:nLog,:nBat)';
 		
 		$curseur = oci_parse($lien,'select max(nSportif) from lesSportifs');
 		@oci_execute($curseur);
