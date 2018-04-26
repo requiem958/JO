@@ -107,7 +107,6 @@
 			$ok = oci_execute ($curseur, OCI_NO_AUTO_COMMIT) ;
 			// on teste $ok pour voir si oci_execute s'est bien passé
 			if (!$ok) {
-				echo("Requete Suppression");
 				echo LeMessage ("majRejetee")."<br /><br />";
 				$e = oci_error($curseur);
 				echo LeMessageOracle ($e['code'], $e['message']) ;
@@ -117,11 +116,6 @@
 			else {
 			// analyse de la requete 2 et association au curseur
 				$curseur = oci_parse ($lien, $requeteInsertionLocataire);
-				echo "<p>";
-				echo $num." ;";
-				echo $_SESSION['nLog']." ;";
-				echo $_SESSION['nomBat']." ;";
-				echo "</p>";
 				oci_bind_by_name($curseur, ':numS', $num);
 				oci_bind_by_name($curseur, ':nLog', $_SESSION['nLog']);
 				oci_bind_by_name($curseur, ':nBat', $_SESSION['nomBat']);
@@ -130,7 +124,6 @@
 
 				// on teste $ok pour voir si oci_execute s'est bien passé
 				if (!$ok) {
-					echo("Requete Insertion");
 					echo LeMessage ("majRejetee")."<br /><br />";
 					echo LeMessageOracle ($e['code'], $e['message']) ;
 					// terminaison de la transaction : annulation
