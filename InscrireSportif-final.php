@@ -4,6 +4,8 @@
 	if (!isset($_POST['numLog'])){
 		
 		$_SESSION['nomBat'] = $_POST['nomBat'];
+		echo "Nom bat : $_POST['nomBat']";
+		echo "Nom bat : $_SESSION['nomBat']";
 		$requete = 'with X as (
 		select nomBat, nlogement, count( nSportif) as occupe,capacite from lesLogements natural join leslocataires group by NomBat,nlogement,capacite having count( nSportif) != capacite
 		union
