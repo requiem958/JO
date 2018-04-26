@@ -32,7 +32,7 @@
 				echo "<p class=\"erreur\">C'est bête y'a plus de place</p><br/>";
 			}
 			else{
-				echo "<form action=\"DemengaerSportif-action.php\" method=\"post\">";
+				echo "<form action=\"DemenagerSportif-action.php\" method=\"post\">";
 				echo "<select name = \"nomBat\">";
 				do{
 					$nomB = oci_result($curseur,1);
