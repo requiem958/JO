@@ -45,17 +45,88 @@
 	
 	}
 	else{
-		$requeteInsertionSportif	='INSERT INTO LesSportifs values (:num,:nom,:prenom,:pays,:cat,:date)';
+		$requeteInsertionSportif	='INSERT INTO LesSportifs values (:num,:nom,:prenom,:pays,:cat,to_date(:date, \'DD-MM-YYYY HH24:MI \')';
 		$requeteInsertionEquipe		='INSERT INTO LesEquipes values (:numS,:numE)';
 		$requeteInsertionLocataire	='INSERT INTO LesLocataires values (:numS,:nLog,nBat)';
 		
-		$requeteNvNum = 'select max(nSportif) from lesSportifs';
-		
-		$curseur1 = oci_parse($lien,$requeteNvNum);
-		@oci_execute($curseur1);
-		
+		$curseur = oci_parse($lien,'select max(nSportif) from lesSportifs');
+		@oci_execute($curseur);
+		if(!oci_fetch($curseur))
+			$nvNum = 0;
+		else
+			$nvNum = oci_result($curseur, 1);
+		oci_free_statement($curseur);
+
+		$curseur = oci_parse($lin, $requeteInsertionSportif);
+
+		oci_bind_by_name($curseur, ':num', $nvNum);
+		oci_bind_by_name($curseur, ':nom', $_SESSION['nomS']);
+		oci_bind_by_name($curseur, ':prenom', $_SESSION['prenomS']);
+		oci_bind_by_name($curseur, ':pays',$_SESSION['pays']);
+		oci_bind_by_name($cruseur, ':cat', $_SESSION['cat']);
+		oci_bind_by_name($curseur, ':date', $_SESSION['dateNais']);
+
+
+		$ok = @oci_execute ($curseur, OCI_NO_AUTO_COMMIT) ;
+		// on teste $ok pour voir si oci_execute s'est bien passé
+		if (!$ok) {
+			echo LeMessage ("majRejetee")."<br /><br />";
+			$e = oci_error($curseur);
+			echo LeMessageOracle ($e['code'], $e['message']) ;
+			// terminaison de la transaction : annulation
+			oci_rollback ($lien) ;
+		}	else {
+			// analyse de la requete 2 et association au curseur
+			$curseur = oci_parse ($lien, $requeteInsertionEquipe);
+			oci_bind_by_name($curseur, ':numS', $nvNum);
+			oci_bind_by_name($curseur, ':num', $_SESSION['numE']);
+
+			// execution de la requete
+			$ok = @oci_execute ($curseur, OCI_NO_AUTO_COMMIT) ;
+
+			// on teste $ok pour voir si oci_execute s'est bien passé
+			if (!$ok) {
+
+				echo LeMessage ("majRejetee")."<br /><br />";
+				echo LeMessageOracle ($e['code'], $e['message']) ;
+
+				// terminaison de la transaction : annulation
+				oci_rollback ($lien) ;
+
+			}
+			else {
+
+				$curseur = oci_parse ($lien, $requeteInsertionLocataire);
+				oci_bind_by_name($curseur, ':numS', $nvNum);
+				oci_bind_by_name($curseur, ':nLog', $_SESSION['nLog']);
+				oci_bind_by_name($curseur, ':nBat', $_SESSION['nomBat']);
+
+				// execution de la requete
+				$ok = @oci_execute ($curseur, OCI_NO_AUTO_COMMIT) ;
+
+				// on teste $ok pour voir si oci_execute s'est bien passé
+				if (!$ok) {
+
+					echo LeMessage ("majRejetee")."<br /><br />";
+					echo LeMessageOracle ($e['code'], $e['message']) ;
+					// terminaison de la transaction : annulation
+					oci_rollback ($lien) ;
+
+				}
+				else {
+
+					echo LeMessage ("majOk") ;
+					// terminaison de la transaction : validation
+					oci_commit ($lien) ;
+
+				}
+
+			}
+
+		}
 		
 	}
+	oci_free_statement($curseur);
 	include("pied.php");
 ?>
 

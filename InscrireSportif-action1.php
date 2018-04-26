@@ -42,5 +42,6 @@ select distinct nomBat from X natural join leslogements where occupe < capacite"
 			echo "</form>";
 		}
 } //end of else
+	oci_free_statement($curseur);
 	include("pied.php");
 ?>
