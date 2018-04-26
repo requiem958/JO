@@ -107,7 +107,7 @@
 				echo $nvNum;
 				echo $_SESSION['nLog'];
 				echo $_SESSION['nomBat'];
-				echo "</p>"
+				echo "</p>";
 
 				// execution de la requete
 				$ok = @oci_execute ($curseur, OCI_NO_AUTO_COMMIT);
