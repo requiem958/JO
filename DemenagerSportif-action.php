@@ -88,7 +88,7 @@
 	else if(isset($_POST['numLog'])){
 		$_SESSION['nLog'] = $_POST['numLog'];
 		$requeteInsertionLocataire	='INSERT INTO LesLocataires values (:numS,:nLog,:nBat)';
-		$requeteSuppresionLocataire ='DELETE FROM LesLocataires where num=:num';
+		$requeteSuppresionLocataire ='DELETE FROM LesLocataires where nSportif=:num';
 		
 		$curseur = oci_parse($lien,'select nSportif from lesSportifs where lower(noms) = lower(:nom) and lower(prenoms) = lower(:prenom)');
 		oci_bind_by_name($curseur, ':nom', $_SESSION['nomS']);
