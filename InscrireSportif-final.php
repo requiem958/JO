@@ -45,7 +45,7 @@
 	
 	}
 	else{
-		$requeteInsertionSportif	='INSERT INTO LesSportifs values (:num,:nom,:prenom,:pays,:cat,to_date(:dateNais, \'DD-MM-YYYY HH24:MI \')';
+		$requeteInsertionSportif	='INSERT INTO LesSportifs values (:num,:nom,:prenom,:pays,:cat,to_date(:dateNais, \'DD-MM-YYYY HH24:MI \'))';
 		$requeteInsertionEquipe		='INSERT INTO LesEquipes values (:numS,:numE)';
 		$requeteInsertionLocataire	='INSERT INTO LesLocataires values (:numS,:nLog,nBat)';
 		
