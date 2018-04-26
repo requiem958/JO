@@ -70,6 +70,7 @@
 		$ok = @oci_execute ($curseur, OCI_NO_AUTO_COMMIT) ;
 		// on teste $ok pour voir si oci_execute s'est bien passé
 		if (!$ok) {
+			echo("Requete sportif")
 			echo LeMessage ("majRejetee")."<br /><br />";
 			$e = oci_error($curseur);
 			echo LeMessageOracle ($e['code'], $e['message']) ;
@@ -86,7 +87,7 @@
 
 			// on teste $ok pour voir si oci_execute s'est bien passé
 			if (!$ok) {
-
+				echo("Requete Equipe")
 				echo LeMessage ("majRejetee")."<br /><br />";
 				echo LeMessageOracle ($e['code'], $e['message']) ;
 
@@ -106,7 +107,7 @@
 
 				// on teste $ok pour voir si oci_execute s'est bien passé
 				if (!$ok) {
-
+					echo("Requete Locataire")
 					echo LeMessage ("majRejetee")."<br /><br />";
 					echo LeMessageOracle ($e['code'], $e['message']) ;
 					// terminaison de la transaction : annulation
