@@ -63,7 +63,7 @@
 		oci_bind_by_name($curseur, ':nom', $_SESSION['nomS']);
 		oci_bind_by_name($curseur, ':prenom', $_SESSION['prenomS']);
 		oci_bind_by_name($curseur, ':pays',$_SESSION['pays']);
-		oci_bind_by_name($cruseur, ':cat', $_SESSION['cat']);
+		oci_bind_by_name($curseur, ':cat', $_SESSION['cat']);
 		oci_bind_by_name($curseur, ':date', $_SESSION['dateNais']);
 
 

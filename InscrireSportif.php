@@ -16,6 +16,8 @@
 	</select><br/>
 	<label for="dateNais">Date de naissance : </label>
 	<input type="text" name="dateNais"></input><br/>
+	<label for="numE">numéro d'équipe : </label>
+	<input type="number" name="numE"></label>
 	<input type="submit" value="Valider"></input>
 	<input type="reset" value="Annuler"></input>
 </form>
