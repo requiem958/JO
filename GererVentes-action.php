@@ -40,7 +40,7 @@
 				if (!oci_fetch($curseur))
 					$nBillet = 0;
 				else
-					$nBillet = oci_result($curseur,1);
+					$nBillet = oci_result($curseur);
 
 				//Iteration sur toutes les epreuves demandées
 
@@ -50,6 +50,7 @@
 					
 					if ($epreuve['name'] == "on"){
 						$nbBillet = $epreuve['nbBillet'];
+						/*
 						//Ajout de autant de billets que demandés
 						for ($i=0; $i < $nbBillet; $i++){
 							oci_bind_by_name($curseur, ':nBillet', $nBillet+$i);
@@ -71,6 +72,7 @@
 
 							}
 						}
+						*/
 						$nBillet = $nBillet + $nbBillet;
 					}
 				}
