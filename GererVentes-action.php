@@ -41,7 +41,8 @@
 					$nBillet = 0;
 				else
 					$nBillet = oci_result($curseur);
-				echo $nBillet."<br/>";
+				
+				echo "Hey : ".$nBillet."<br/>";
 				//Iteration sur toutes les epreuves demandées
 
 				$curseur = oci_parse($lien,'INSERT INTO LesBillets values(:nBillet,:nDossier,:nEpreuve)');
