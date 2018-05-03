@@ -67,7 +67,7 @@
 		echo "<p> Vous n'avez aucun numéro de dossier vous ne devez pas être là.</p>";
 	}
 	else {
-		echo "<p>Vous êtes l'utilisateur numéro ".$_SESSION['nUtil']." pour le dossier ".$_SESSION['nDossier']."</p><br>";
+		echo "<p>Vous êtes l'utilisateur numéro ".$_SESSION['nUtil']." pour le dossier ".$_SESSION['nDossier']."</p><br/>";
 		
 		//Generation des epreuves à choisir
 		
