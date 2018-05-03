@@ -41,8 +41,6 @@
 					$nBillet = 0;
 				else
 					$nBillet = oci_result($curseur,1);
-
-				echo "Hey : ".$nBillet."<br/>";
 				//Iteration sur toutes les epreuves demandées
 
 				$curseur = oci_parse($lien,'INSERT INTO LesBillets values(:nBillet,:nDossier,:nEpreuve)');
@@ -51,10 +49,10 @@
 					
 					if ($epreuve['name'] == "on"){
 						$nbBillet = $epreuve['nbBillet'];
-						/*
+						
 						//Ajout de autant de billets que demandés
 						for ($i=0; $i < $nbBillet; $i++){
-							oci_bind_by_name($curseur, ':nBillet', $nBillet+$i);
+							oci_bind_by_name($curseur, ':nBillet', $nBillet++);
 							oci_bind_by_name($curseur, ':nDossier', $_SESSION['nDossier']);
 							oci_bind_by_name($curseur, ':nEpreuve', $key);
 							$ok = @oci_execute ($curseur,OCI_NO_AUTO_COMMIT) ;
@@ -73,8 +71,6 @@
 
 							}
 						}
-						*/
-						$nBillet = $nBillet + $nbBillet;
 					}
 				}
 			}
