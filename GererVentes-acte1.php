@@ -4,8 +4,7 @@
 	//On récupére les variables sur le numéro d'user
 
 	if(isset($_POST['nvUtil']) && $_POST['nvUtil']=="on"){
-		$requete = 'select max(nUtil)+1 from LesDossiers';
-		$curseur = oci_parse($lien,$requete);
+		$curseur = oci_parse($lien,'select max(nUtil)+1 from LesDossiers';
 		$ok = @oci_execute ($curseur) ;
 
 		// on teste $ok pour voir si oci_execute s'est bien passé
@@ -13,6 +12,8 @@
 			// oci_execute a échoué, on affiche l'erreur
 			$error_message = oci_error($curseur);
 			echo "<p class=\"erreur\">{$error_message['message']}</p>";
+			echo "bwa";
+			return;
 
 		}
 		else {
@@ -31,7 +32,7 @@
 		echo "<p>Erreur d'arrivée ici</p>";
 		return;
 	}
-	echo "hey";
+	echo $_SESSION['nUtil'];
 /*
 	//On récupère les numéros de dossier
 
