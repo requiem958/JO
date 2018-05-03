@@ -4,7 +4,7 @@
 	//On récupére les variables sur le numéro d'user
 
 	if(isset($_POST['nvUtil']) && $_POST['nvUtil']=="on"){
-		$curseur = oci_parse($lien,'select max(nUtil)+1 from LesDossiers';
+		$curseur = oci_parse($lien,'select max(nUtil)+1 from LesDossiers');
 		$ok = @oci_execute ($curseur) ;
 
 		// on teste $ok pour voir si oci_execute s'est bien passé
