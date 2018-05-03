@@ -3,7 +3,7 @@
 	
 	//On récupére les variables sur le numéro d'user
 
-	if(isset($_POST['nvutil'])){
+	if(isset($_POST['nvUtil']) && $_POST['nvUtil']=="on"){
 		$requete = 'select max(nUtil)+1 from LesDossiers';
 		$curseur = oci_parse($lien,$requete);
 		$ok = @oci_execute ($curseur) ;
@@ -24,13 +24,14 @@
 			}
 		}
 	}
-	else if (isset($_POST['nutil'])){
+	else if (isset($_POST['nUtil'])){
 		$_SESSION['nUtil'] = $_POST['nUtil'];
 	}
 	else{
 		echo "<p>Erreur d'arrivée ici</p>";
 		return;
 	}
+	echo "hey";
 /*
 	//On récupère les numéros de dossier
 

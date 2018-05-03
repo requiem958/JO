@@ -4,8 +4,8 @@
 	include('entete.php');
 	echo ("
 	<form method=\"post\" action=\"GererVentes-acte1.php\">
-		<label for=\"nvutil\">Êtes vous un nouvel utilisateur ?</label>
-		<input type=\"checkbox\" id=\"yes\" name=\"nvutil\"></input>
+		<label for=\"nvUtil\">Êtes vous un nouvel utilisateur ?</label>
+		<input type=\"checkbox\" id=\"yes\" name=\"nvUtil\"></input>
 		<label for=\"num\">Si non entrez votre numéro :</label>
 		<input type=\"number\" id=\"nUtil\" name=\"nUtil\"></input>
 		<input type=\"submit\" value=\"Valider\"></input>
