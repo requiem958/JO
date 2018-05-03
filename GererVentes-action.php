@@ -12,6 +12,7 @@
 
 		// on teste $ok pour voir si oci_execute s'est bien passé
 		if (!$ok) {
+			echo "<p>Erreur insertion dossier</p>";
 			// oci_execute a échoué, on affiche l'erreur
 			$error_message = oci_error($curseur);
 			echo "<p class=\"erreur\">{$error_message['message']}</p>";
@@ -24,6 +25,7 @@
 
 			// on teste $ok pour voir si oci_execute s'est bien passé
 			if (!$ok) {
+				echo "<p>Erreur selection billet</p>";
 				// oci_execute a échoué, on affiche l'erreur
 				$error_message = oci_error($curseur);
 				echo "<p class=\"erreur\">{$error_message['message']}</p>";
