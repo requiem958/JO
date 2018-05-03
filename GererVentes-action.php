@@ -52,7 +52,7 @@
 						
 						//Ajout de autant de billets que demandés
 						for ($i=0; $i < $nbBillet; $i++){
-
+							echo "$nBillet;";
 							oci_bind_by_name($curseur, ':nBillet', $nBillet);
 							$nBillet = $nBillet + 1;
 							
@@ -61,7 +61,7 @@
 
 							$ok = @oci_execute ($curseur,OCI_NO_AUTO_COMMIT) ;
 							if (!$ok) {
-								echo "<p>Erreur insertion billet</p>";
+								echo "<p>Erreur insertion billet : $key : $nBillet : ".$_SESSION['nDossier']".</p><br/>";
 								// oci_execute a échoué, on affiche l'erreur
 								$error_message = oci_error($curseur);
 								echo "<p class=\"erreur\">{$error_message['message']}</p>";
