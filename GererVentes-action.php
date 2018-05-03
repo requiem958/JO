@@ -49,7 +49,7 @@
 					$nBillet = oci_result($curseur);
 
 				//Iteration sur toutes les epreuves demandées
-				/*
+				
 				foreach($_POST['epreuve'] as $nEpreuve => list($name, $nbBillet)){
 					if ($name == "on"){
 						//Ajout de autant de billets que demandés
@@ -76,7 +76,7 @@
 						$nBillet = $nBillet + $nbBillet;
 					}
 				}
-				*/
+				
 			}
 		}
 	}
@@ -85,8 +85,7 @@
 		include('pied.php');
 		return;
 	}
-	oci_rollback($lien);
-	//oci_commit($curseur);
+	oci_commit($lien);
 	oci_free_statement($curseur);
 
 	include('pied.php');
