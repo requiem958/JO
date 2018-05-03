@@ -37,8 +37,10 @@
 	echo "<p>".$_SESSION['nUtil']."</p>";
 
 	//On récupère les numéros de dossier
+	oci_free_statement($curseur);
+	/*
 	$curseur = oci_parse($lien,'select max(nDossier)+1 from LesDossiers');
-	$ok = @oci_execute ($curseur) ;
+	$ok = @oci_execute ($curseur);
 
 	// on teste $ok pour voir si oci_execute s'est bien passé
 	if (!$ok) {
@@ -63,6 +65,7 @@
 		
 		//Generation des epreuves à choisir
 		
+		oci_free_statement($curseur);
 		$curseur = oci_parse($lien,'select nEpreuve,nomEpreuve,dateEpreuve from LesEpreuves');
 		$ok = @oci_execute ($curseur) ;
 
@@ -100,5 +103,7 @@
 			}
 		}
 	}
+	oci_free_statement($curseur);
+	*/
 	include('pied.php');
 ?>
