@@ -17,7 +17,7 @@
 			// oci_execute a échoué, on affiche l'erreur
 			$error_message = oci_error($curseur);
 			echo "<p class=\"erreur\">{$error_message['message']}</p>";
-			oci_rollback($curseur)
+			oci_rollback($curseur);
 			oci_free_statement($curseur);
 			include('pied.php');
 			return;
@@ -51,7 +51,7 @@
 						//Ajout de autant de billets que demandés
 						for ($i=0; $i < $nbBillet; $i++){
 							$curseur = oci_parse($lien,'INSERT INTO LesBillets values(:nBillet,:nDossier,:nEpreuve)');
-							oci_bind_by_name($curseur, ':nBillet', $nBillet+$i)
+							oci_bind_by_name($curseur, ':nBillet', $nBillet+$i);
 							oci_bind_by_name($curseur, ':nDossier', $_SESSION['nDossier']);
 							oci_bind_by_name($curseur, ':nEpreuve', $nEpreuve);
 							$ok = @oci_execute ($curseur);
