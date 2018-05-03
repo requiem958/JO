@@ -18,11 +18,9 @@
 			$error_message = oci_error($curseur);
 			echo "<p class=\"erreur\">{$error_message['message']}</p>";
 			oci_rollback($lien);
-			oci_free_statement($curseur);
-			include('pied.php');
-			return;
 
 		}
+		/*
 		else {
 			echo "Bla 1";
 			$curseur = oci_parse($lien,'select max(nBillet)+1 from Lesbillets');
@@ -35,10 +33,6 @@
 				$error_message = oci_error($curseur);
 				echo "<p class=\"erreur\">{$error_message['message']}</p>";
 				oci_rollback($lien);
-
-				oci_free_statement($curseur);
-				include('pied.php');
-				return;
 			}
 			
 			else {
@@ -65,9 +59,11 @@
 								// oci_execute a échoué, on affiche l'erreur
 								$error_message = oci_error($curseur);
 								echo "<p class=\"erreur\">{$error_message['message']}</p>";
+
 								oci_rollback($lien);
 
 								oci_free_statement($curseur);
+								
 								include('pied.php');
 								return;
 
@@ -76,16 +72,17 @@
 						$nBillet = $nBillet + $nbBillet;
 					}
 				}
-				
+				//oci_commit($lien);
 			}
 		}
+		*/
 	}
 	else{
 		echo "<p>Vous n'avez rien à faire ici.</p>";
 		include('pied.php');
 		return;
 	}
-	oci_commit($lien);
+
 	oci_free_statement($curseur);
 
 	include('pied.php');
