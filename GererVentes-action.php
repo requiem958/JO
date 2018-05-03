@@ -61,7 +61,7 @@
 
 							$ok = @oci_execute ($curseur,OCI_NO_AUTO_COMMIT) ;
 							if (!$ok) {
-								echo "<p>Erreur insertion billet : $key : $nBillet : ".$_SESSION['nDossier']".</p><br/>";
+								echo "<p>Erreur insertion billet : $key : $nBillet : ".$_SESSION['nDossier'].".</p><br/>";
 								// oci_execute a échoué, on affiche l'erreur
 								$error_message = oci_error($curseur);
 								echo "<p class=\"erreur\">{$error_message['message']}</p>";
