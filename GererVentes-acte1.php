@@ -38,7 +38,7 @@
 
 	//On récupère les numéros de dossier
 	oci_free_statement($curseur);
-	/*
+	
 	$curseur = oci_parse($lien,'select max(nDossier)+1 from LesDossiers');
 	$ok = @oci_execute ($curseur);
 
@@ -56,7 +56,7 @@
 	}
 	
 	//On affiche les epreuves our la selection
-
+	/*
 	if (!isset($_SESSION['nDossier'])){
 		echo "<p> Vous n'avez aucun numéro de dossier vous ne devez pas être là.</p>";
 	}
