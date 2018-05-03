@@ -1,5 +1,7 @@
 <?php session_start();
 
+	include('entete.php');
+
 	
 	//On récupére les variables sur le numéro d'user
 
