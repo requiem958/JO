@@ -87,17 +87,16 @@
 				echo "<p class=\"erreur\">{$error_message['message']}</p>";
 			}
 			else{
-				echo "<form action=\"GererVentes-acte1.php\" method=\"post\">";
+				echo "<form action=\"GererVentes-action.php\" method=\"post\">";
 				do{
 					$nEpreuve = oci_result($curseur, 1);
 					$nomEpreuve = oci_result($curseur, 2);
 					$dateEpreuve = oci_result($curseur, 3);
 					echo "
-					<input type=\"checkbox\" name=\"nom_$nEpreuve\"></input>
-					<label for=\"nom_$nEpreuve\">$nomEpreuve : $dateEpreuve</label>
-					<label for=\"nbBillet_$nEpreuve\">Nombre de billets : </label>
-					<input type=\"number\" name=\"nbBillet_$nEpreuve\"></input>
-					<input type=\"hidden\" name=\"nEpreuve_$nEpreuve\" value=\"$nEpreuve\"></input><br/>\n";
+					<input type=\"checkbox\" name=\"epreuve[$nEpreuve][name]\"></input>
+					<label for=\"epreuve[$nEpreuve][name]\">$nomEpreuve : $dateEpreuve</label>
+					<label for=\"epreuve[$nEpreuve][nbBillet]\">Nombre de billets : </label>
+					<input type=\"number\" name=\"epreuve[$nEpreuve][nbBillet]\"></input>";
 				}while(oci_fetch($curseur));
 
 				echo "<input type=\"submit\" name=\"validVente\" value=\"Valider\"></input>\n<input type=\"reset\" value=\"Annuler\"></input>\n</form>";
