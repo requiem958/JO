@@ -62,7 +62,7 @@
 	
 	echo "<p>".$_SESSION['nDossier']."</p>";
 	//On affiche les epreuves pour la selection
-	/*
+	
 	if (!isset($_SESSION['nDossier'])){
 		echo "<p> Vous n'avez aucun numéro de dossier vous ne devez pas être là.</p>";
 	}
