@@ -34,7 +34,7 @@
 		echo "<p>Erreur d'arrivée ici</p>";
 		return;
 	}
-	echo $_SESSION['nUtil'];
+	echo "<p>".$_SESSION['nUtil']."<p>";
 /*
 	//On récupère les numéros de dossier
 
@@ -104,4 +104,5 @@
 		echo "<p> Vous n'avez aucun numéro de dossier.</p>":
 	}
 	*/
+	include('pied.php');
 ?>
