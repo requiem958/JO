@@ -16,7 +16,6 @@
 			echo "<p class=\"erreur\">{$error_message['message']}</p>";
 			echo "bwa";
 			return;
-
 		}
 		else {
 			if (!oci_fetch($curseur)){
