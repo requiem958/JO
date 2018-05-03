@@ -48,6 +48,7 @@
 				$curseur = oci_parse($lien,'INSERT INTO LesBillets values(:nBillet,:nDossier,:nEpreuve)');
 				
 				foreach($_POST['epreuve'] as $epreuve ){
+					echo "hey;";
 					foreach($epreuve as $nEpreuve => $tab){
 						if ($tab['name'] == "on")
 							echo "<p>Hey : ".$nEpreuve." : ". $tab['nbBillet']."</p><br/>\n";
