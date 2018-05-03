@@ -58,7 +58,7 @@
 							
 							oci_bind_by_name($curseur, ':nDossier', $_SESSION['nDossier']);
 							oci_bind_by_name($curseur, ':nEpreuve', $key);
-							/*
+
 							$ok = @oci_execute ($curseur,OCI_NO_AUTO_COMMIT) ;
 							if (!$ok) {
 								echo "<p>Erreur insertion billet</p>";
@@ -74,7 +74,7 @@
 								return;
 
 							}
-							*/
+							
 						}
 					}
 				}
