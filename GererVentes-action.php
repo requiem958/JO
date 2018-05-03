@@ -4,7 +4,7 @@
 	include('entete.php');
 	
 	if(isset($_POST['validVente'])){
-		echo $_SESSION['nDossier']." et ". $_SESSION['nUtil'];
+		//echo $_SESSION['nDossier']." et ". $_SESSION['nUtil'];
 		$requete = 'INSERT INTO LesDossiers_base values (:nUtil,:nDossier,sysdate)';
 		$curseur = oci_parse($lien,$requete);
 		oci_bind_by_name($curseur, ':nDossier', $_SESSION['nDossier']);
@@ -35,13 +35,13 @@
 			}
 			
 			else {
-				var_dump($_POST);
-				echo "<br/><br/>";
+				//var_dump($_POST);
+				//echo "<br/><br/>";
 				if (!oci_fetch($curseur))
 					$nBillet = 0;
 				else
 					$nBillet = oci_result($curseur);
-
+				echo $nBillet."<br/>"
 				//Iteration sur toutes les epreuves demandées
 
 				$curseur = oci_parse($lien,'INSERT INTO LesBillets values(:nBillet,:nDossier,:nEpreuve)');
