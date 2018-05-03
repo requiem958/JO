@@ -20,7 +20,7 @@
 			oci_rollback($lien);
 
 		}
-		/*
+		
 		else {
 			echo "Bla 1";
 			$curseur = oci_parse($lien,'select max(nBillet)+1 from Lesbillets');
@@ -36,6 +36,7 @@
 			}
 			
 			else {
+				/*
 				echo "Bla 2";
 				if (!oci_fetch($curseur))
 					$nBillet = 0;
@@ -74,9 +75,10 @@
 					}
 				}
 				//oci_commit($lien);
+				*/
 			}
 		}
-		*/
+		
 	}
 	else{
 		echo "<p>Vous n'avez rien à faire ici.</p>";
@@ -85,7 +87,6 @@
 	}
 
 	oci_free_statement($curseur);
-	oci_rollback($lien);
 
 	include('pied.php');
 ?>
