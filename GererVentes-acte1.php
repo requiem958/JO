@@ -69,7 +69,7 @@
 		//Generation des epreuves à choisir
 		
 		oci_free_statement($curseur);
-		$curseur = oci_parse($lien,'select nEpreuve,nomE,dateEpreuve from LesEpreuves');
+		$curseur = oci_parse($lien,'select nEpreuve,nomE,dateEpreuve from LesEpreuves order by dateEpreuve,nomE');
 		$ok = @oci_execute ($curseur) ;
 
 		// on teste $ok pour voir si oci_execute s'est bien passé
