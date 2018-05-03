@@ -23,6 +23,7 @@
 			return;
 
 		}
+		/*
 		else {
 			$curseur = oci_parse($lien,'select max(nBillet)+1 from Lesbillets');
 			$ok = @oci_execute ($curseur) ;
@@ -74,13 +75,14 @@
 				}
 			}
 		}
+		*/
 	}
 	else{
 		echo "<p>Vous n'avez rien à faire ici.</p>";
 		include('pied.php');
 		return;
 	}
-	oci_commit($curseur);
+	//oci_commit($curseur);
 	oci_free_statement($curseur);
 
 	include('pied.php');
