@@ -40,26 +40,21 @@
 				if (!oci_fetch($curseur))
 					$nBillet = 0;
 				else
-					$nBillet = oci_result($curseur);
+					$nBillet = oci_result($curseur,1);
 
 				//Iteration sur toutes les epreuves demandées
 
 				$curseur = oci_parse($lien,'INSERT INTO LesBillets values(:nBillet,:nDossier,:nEpreuve)');
 				
 				foreach($_POST['epreuve'] as $key => $epreuve ){
-					echo "<p>hey : $key</p><br/>";
-					if ($epreuve['name'] == "on")
-						echo "<p>Hey : ".$key." : ". $_POST['epreuve'][$key]['nbBillet']."</p><br/>\n";
-					else
-						echo "<p>patatpe</p><br/>";
-					/*
-					if ($name == "on"){
+					
+					if ($epreuve['name'] == "on"){
+						$nbBillet = $epreuve['nbBillet'];
 						//Ajout de autant de billets que demandés
 						for ($i=0; $i < $nbBillet; $i++){
-							
 							oci_bind_by_name($curseur, ':nBillet', $nBillet+$i);
 							oci_bind_by_name($curseur, ':nDossier', $_SESSION['nDossier']);
-							oci_bind_by_name($curseur, ':nEpreuve', $nEpreuve);
+							oci_bind_by_name($curseur, ':nEpreuve', $key);
 							$ok = @oci_execute ($curseur,OCI_NO_AUTO_COMMIT) ;
 							if (!$ok) {
 								echo "<p>Erreur insertion billet</p>";
@@ -78,7 +73,7 @@
 						}
 						$nBillet = $nBillet + $nbBillet;
 					}
-					*/
+					}
 				}
 				//oci_commit($lien);
 			}
