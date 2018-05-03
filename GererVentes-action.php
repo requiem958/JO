@@ -9,7 +9,7 @@
 		$curseur = oci_parse($lien,$requete);
 		oci_bind_by_name($curseur, ':nDossier', $_SESSION['nDossier']);
 		oci_bind_by_name($curseur, ':nUtil', $_SESSION['nUtil']);
-		$ok = @oci_execute ($curseur) ;
+		$ok = @oci_execute ($curseur,OCI_NO_AUTO_COMMIT) ;
 
 		// on teste $ok pour voir si oci_execute s'est bien passé
 		if (!$ok) {
@@ -24,7 +24,7 @@
 		else {
 			echo "Bla 1";
 			$curseur = oci_parse($lien,'select max(nBillet)+1 from Lesbillets');
-			$ok = @oci_execute ($curseur) ;
+			$ok = @oci_execute ($curseur,OCI_NO_AUTO_COMMIT) ;
 
 			// on teste $ok pour voir si oci_execute s'est bien passé
 			if (!$ok) {
@@ -43,17 +43,18 @@
 					$nBillet = oci_result($curseur);
 
 				//Iteration sur toutes les epreuves demandées
+
+				$curseur = oci_parse($lien,'INSERT INTO LesBillets values(:nBillet,:nDossier,:nEpreuve)');
 				
 				foreach($_POST['epreuve'] as $nEpreuve => list($name, $nbBillet)){
 					if ($name == "on"){
 						//Ajout de autant de billets que demandés
 						for ($i=0; $i < $nbBillet; $i++){
-							$curseur = oci_parse($lien,'INSERT INTO LesBillets values(:nBillet,:nDossier,:nEpreuve)');
+							
 							oci_bind_by_name($curseur, ':nBillet', $nBillet+$i);
 							oci_bind_by_name($curseur, ':nDossier', $_SESSION['nDossier']);
 							oci_bind_by_name($curseur, ':nEpreuve', $nEpreuve);
-							$ok = @oci_execute ($curseur);
-
+							$ok = @oci_execute ($curseur,OCI_NO_AUTO_COMMIT) ;
 							if (!$ok) {
 								echo "<p>Erreur insertion billet</p>";
 								// oci_execute a échoué, on affiche l'erreur
