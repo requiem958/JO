@@ -40,8 +40,8 @@
 				if (!oci_fetch($curseur))
 					$nBillet = 0;
 				else
-					$nBillet = oci_result($curseur);
-				
+					$nBillet = oci_result($curseur,1);
+
 				echo "Hey : ".$nBillet."<br/>";
 				//Iteration sur toutes les epreuves demandées
 
