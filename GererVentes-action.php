@@ -2,7 +2,7 @@
 	
 	$titre = 'Ventes de billets';
 	include('entete.php');
-	
+	$nBillet = 0;
 	if(isset($_POST['validVente'])){
 		//echo $_SESSION['nDossier']." et ". $_SESSION['nUtil'];
 		$requete = 'INSERT INTO LesDossiers_base values (:nUtil,:nDossier,sysdate)';
@@ -52,7 +52,10 @@
 						
 						//Ajout de autant de billets que demandés
 						for ($i=0; $i < $nbBillet; $i++){
-							oci_bind_by_name($curseur, ':nBillet', $nBillet++);
+
+							oci_bind_by_name($curseur, ':nBillet', $nBillet);
+							$nBillet = $nBillet + 1;
+							/*
 							oci_bind_by_name($curseur, ':nDossier', $_SESSION['nDossier']);
 							oci_bind_by_name($curseur, ':nEpreuve', $key);
 							$ok = @oci_execute ($curseur,OCI_NO_AUTO_COMMIT) ;
@@ -70,6 +73,7 @@
 								return;
 
 							}
+							*/
 						}
 					}
 				}
