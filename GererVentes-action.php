@@ -84,6 +84,7 @@
 	}
 
 	oci_free_statement($curseur);
+	oci_rollback($lien);
 
 	include('pied.php');
 ?>
