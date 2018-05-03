@@ -48,7 +48,7 @@
 				
 				foreach($_POST['epreuve'] as $key => $epreuve ){
 					echo "<p>hey : $key</p><br/>";
-					if ($_POST['epreuve'][$key]['name'] == "on")
+					if ($epreuve['name'] == "on")
 						echo "<p>Hey : ".$key." : ". $_POST['epreuve'][$key]['nbBillet']."</p><br/>\n";
 					else
 						echo "<p>patatpe</p><br/>";
