@@ -103,7 +103,7 @@
 					<input type=\"hidden\" name=\"nEpreuve_$nEpreuve\" value=\"$nEpreuve\"></input><br/>\n";
 				}while(oci_fetch($curseur));
 
-				echo "<input type=\"submit\" name=\"validVente\" value=\"Valider\"></input>\n<input type=\"reset" value=\"Annuler\"></input>\n</form>";
+				echo "<input type=\"submit\" name=\"validVente\" value=\"Valider\"></input>\n<input type=\"reset\" value=\"Annuler\"></input>\n</form>";
 			}
 		}
 	}
