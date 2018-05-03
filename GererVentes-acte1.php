@@ -37,7 +37,7 @@
 	echo "<p>".$_SESSION['nUtil']."</p>";
 
 	//On récupère les numéros de dossier
-	$curseur = oci_parse($lien,'select max(nDossier)+1 from LesDossiers_base');
+	$curseur = oci_parse($lien,'select max(nDossier)+1 from LesDossiers');
 	$ok = @oci_execute ($curseur) ;
 
 	// on teste $ok pour voir si oci_execute s'est bien passé
@@ -56,7 +56,7 @@
 	//On affiche les epreuves our la selection
 
 	if (!isset($_SESSION['nDossier'])){
-		echo "<p> Vous n'avez aucun numéro de dossier vous ne devez pas être là.</p>":
+		echo "<p> Vous n'avez aucun numéro de dossier vous ne devez pas être là.</p>";
 	}
 	else {
 		echo "<p>Vous êtes l'utilisateur numéro ".$_SESSION['nUtil']." pour le dossier ".$_SESSION['nDossier']."</p><br>";
