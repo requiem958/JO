@@ -22,7 +22,6 @@
 		}
 		
 		else {
-			echo "Bla 1";
 			$curseur = oci_parse($lien,'select max(nBillet)+1 from Lesbillets');
 			$ok = @oci_execute ($curseur,OCI_NO_AUTO_COMMIT) ;
 
@@ -37,7 +36,7 @@
 			
 			else {
 				var_dump($_POST);
-				echo "<br/>Bla 2<br/>";
+				echo "<br/><br/>";
 				if (!oci_fetch($curseur))
 					$nBillet = 0;
 				else
@@ -47,11 +46,13 @@
 
 				$curseur = oci_parse($lien,'INSERT INTO LesBillets values(:nBillet,:nDossier,:nEpreuve)');
 				
-				foreach($_POST['epreuve'] as $epreuve ){
-					echo "hey;";
+				foreach($_POST['epreuve'] as $key => $epreuve ){
+					echo "<p>hey : $key</p><br/>";
 					foreach($epreuve as $nEpreuve => $tab){
 						if ($tab['name'] == "on")
 							echo "<p>Hey : ".$nEpreuve." : ". $tab['nbBillet']."</p><br/>\n";
+						else
+							echo "<p>patatpe</p><br/>";
 					}
 					/*
 					if ($name == "on"){
