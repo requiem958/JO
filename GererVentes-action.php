@@ -5,11 +5,11 @@
 	$nBillet = 0;
 	if(isset($_POST['validVente'])){
 		//echo $_SESSION['nDossier']." et ". $_SESSION['nUtil'];
-		$requete = 'INSERT INTO LesDossiers_base values (:nUtil,:nDossier,sysdate)';
+		$requete = 'INSERT INTO LesDossiers_base values (:nDossier,:nUtil,sysdate)';
 		$curseur = oci_parse($lien,$requete);
 		oci_bind_by_name($curseur, ':nDossier', $_SESSION['nDossier']);
 		oci_bind_by_name($curseur, ':nUtil', $_SESSION['nUtil']);
-		$ok = @oci_execute ($curseur) ;
+		$ok = @oci_execute ($curseur,OCI_NO_AUTO_COMMIT) ;
 
 		// on teste $ok pour voir si oci_execute s'est bien passé
 		if (!$ok) {
@@ -79,7 +79,7 @@
 					}
 				}
 			}
-				//oci_commit($lien);
+			oci_commit($lien);
 		}
 	}
 	else{
