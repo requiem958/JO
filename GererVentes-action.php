@@ -36,8 +36,8 @@
 			}
 			
 			else {
-				
-				echo "Bla 2";
+				var_dump($_POST);
+				echo "<br/>Bla 2<br/>";
 				if (!oci_fetch($curseur))
 					$nBillet = 0;
 				else
