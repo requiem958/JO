@@ -47,20 +47,20 @@
 					$nEpreuve = oci_result($curseur, 1);
 					$nomEpreuve = oci_result($curseur, 2);
 					$dateEpreuve = oci_result($curseur, 3);
-					echo ("
+					echo "
 					<input type=\"checkbox\" name=\"nom_$nEpreuve\"></input>
 					<label for=\"nom_$nEpreuve\">$nomEpreuve : $dateEpreuve</label>
 					<label for=\"nbBillet_$nEpreuve\">Nombre de billets : </label>
 					<input type=\"number\" name=\"nbBillet_$nEpreuve\"></input>
-					<input type=\"hidden\" name=\"nEpreuve_$nEpreuve\" value=\"$nEpreuve\"></input>"
-					);
+					<input type=\"hidden\" name=\"nEpreuve_$nEpreuve\" value=\"$nEpreuve\"></input><br/>\n";
 				}while(oci_fetch($curseur));
-?>
-	<input type="submit" name="validVente" value="Valider"></input>
-	<input type="reset" value="Annuler"></input>
-	</form>
-<?
+
+				echo "<input type=\"submit\" name=\"validVente\" value=\"Valider\"></input>\n
+				<input type=\"reset" value=\"Annuler\"></input>\n
+				</form>";
 			}
 		}
 	}
-	*/
+	else {
+		echo "<p> Vous n'avez aucun numéro de dossier.</p>":
+	}
