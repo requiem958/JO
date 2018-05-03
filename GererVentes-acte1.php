@@ -109,7 +109,6 @@
 			}
 		}
 	}
-	*/
 	oci_free_statement($curseur);
 	include('pied.php');
 ?>
