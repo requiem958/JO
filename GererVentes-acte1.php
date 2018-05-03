@@ -96,7 +96,7 @@
 					<input type=\"checkbox\" name=\"epreuve[$nEpreuve][name]\"></input>
 					<label for=\"epreuve[$nEpreuve][name]\">$nomEpreuve : $dateEpreuve</label>
 					<label for=\"epreuve[$nEpreuve][nbBillet]\">Nombre de billets : </label>
-					<input type=\"number\" name=\"epreuve[$nEpreuve][nbBillet]\"></input>";
+					<input type=\"number\" name=\"epreuve[$nEpreuve][nbBillet]\"></input><br/>";
 				}while(oci_fetch($curseur));
 
 				echo "<input type=\"submit\" name=\"validVente\" value=\"Valider\"></input>\n<input type=\"reset\" value=\"Annuler\"></input>\n</form>";
