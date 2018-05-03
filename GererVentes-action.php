@@ -79,6 +79,7 @@
 				}
 			}
 			oci_commit($lien);
+			echo "<p> Toutes vos places ont bien été enregistrées (non sans mal)</p>";
 		}
 	}
 	else{
