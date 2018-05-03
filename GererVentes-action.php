@@ -6,8 +6,8 @@
 	if(isset($_POST['validVente'])){
 		$requete = 'insert into LesDossiers_base values( :nDossier, :nUtil, sysdate() )';
 		$curseur = oci_parse($lien,$requete);
-		oci_bind_by_name($curseur, 'nDossier', $_SESSION['nDossier']);
-		oci_bind_by_name($curseur, 'nUtil', $_SESSION['nUtil']);
+		oci_bind_by_name($curseur, ':nDossier', $_SESSION['nDossier']);
+		oci_bind_by_name($curseur, ':nUtil', $_SESSION['nUtil']);
 		$ok = @oci_execute ($curseur) ;
 
 		// on teste $ok pour voir si oci_execute s'est bien passé
