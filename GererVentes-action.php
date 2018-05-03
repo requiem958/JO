@@ -17,13 +17,12 @@
 			// oci_execute a échoué, on affiche l'erreur
 			$error_message = oci_error($curseur);
 			echo "<p class=\"erreur\">{$error_message['message']}</p>";
-			oci_rollback($curseur);
+			oci_rollback($lien);
 			oci_free_statement($curseur);
 			include('pied.php');
 			return;
 
 		}
-		/*
 		else {
 			$curseur = oci_parse($lien,'select max(nBillet)+1 from Lesbillets');
 			$ok = @oci_execute ($curseur) ;
@@ -34,12 +33,13 @@
 				// oci_execute a échoué, on affiche l'erreur
 				$error_message = oci_error($curseur);
 				echo "<p class=\"erreur\">{$error_message['message']}</p>";
-				oci_rollback($curseur);
+				oci_rollback($lien);
 
 				oci_free_statement($curseur);
 				include('pied.php');
 				return;
 			}
+			
 			else {
 				if (!oci_fetch($curseur))
 					$nBillet = 0;
@@ -47,6 +47,7 @@
 					$nBillet = oci_result($curseur);
 
 				//Iteration sur toutes les epreuves demandées
+				/*
 				foreach($_POST['epreuve'] as $nEpreuve => list($name, $nbBillet)){
 					if ($name == "on"){
 						//Ajout de autant de billets que demandés
@@ -62,7 +63,7 @@
 								// oci_execute a échoué, on affiche l'erreur
 								$error_message = oci_error($curseur);
 								echo "<p class=\"erreur\">{$error_message['message']}</p>";
-								oci_rollback($curseur);
+								oci_rollback($lien);
 
 								oci_free_statement($curseur);
 								include('pied.php');
@@ -73,15 +74,16 @@
 						$nBillet = $nBillet + $nbBillet;
 					}
 				}
+				*/
 			}
 		}
-		*/
 	}
 	else{
 		echo "<p>Vous n'avez rien à faire ici.</p>";
 		include('pied.php');
 		return;
 	}
+	oci_rollback($lien)
 	//oci_commit($curseur);
 	oci_free_statement($curseur);
 
