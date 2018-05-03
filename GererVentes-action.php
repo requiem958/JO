@@ -48,12 +48,10 @@
 				
 				foreach($_POST['epreuve'] as $key => $epreuve ){
 					echo "<p>hey : $key</p><br/>";
-					foreach($epreuve as $nEpreuve => $tab){
-						if ($tab['name'] == "on")
-							echo "<p>Hey : ".$nEpreuve." : ". $tab['nbBillet']."</p><br/>\n";
-						else
-							echo "<p>patatpe</p><br/>";
-					}
+					if ($epreuve[$key]['name'] == "on")
+						echo "<p>Hey : ".$nEpreuve." : ". $tab['nbBillet']."</p><br/>\n";
+					else
+						echo "<p>patatpe</p><br/>";
 					/*
 					if ($name == "on"){
 						//Ajout de autant de billets que demandés
