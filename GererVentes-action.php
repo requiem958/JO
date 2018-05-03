@@ -36,7 +36,7 @@
 			}
 			
 			else {
-				/*
+				
 				echo "Bla 2";
 				if (!oci_fetch($curseur))
 					$nBillet = 0;
@@ -46,7 +46,7 @@
 				//Iteration sur toutes les epreuves demandées
 
 				$curseur = oci_parse($lien,'INSERT INTO LesBillets values(:nBillet,:nDossier,:nEpreuve)');
-				
+				/*
 				foreach($_POST['epreuve'] as $nEpreuve => list($name, $nbBillet)){
 					if ($name == "on"){
 						//Ajout de autant de billets que demandés
