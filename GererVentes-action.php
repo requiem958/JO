@@ -73,10 +73,9 @@
 						}
 						$nBillet = $nBillet + $nbBillet;
 					}
-					}
 				}
-				//oci_commit($lien);
 			}
+				//oci_commit($lien);
 		}
 		
 	}
