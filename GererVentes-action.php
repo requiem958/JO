@@ -47,7 +47,11 @@
 
 				$curseur = oci_parse($lien,'INSERT INTO LesBillets values(:nBillet,:nDossier,:nEpreuve)');
 				
-				foreach($_POST['epreuve'] as $nEpreuve => list($name, $nbBillet)){
+				foreach($_POST['epreuve'] as $epreuve ){
+					foreach($epreuve as $nEpreuve => $tab){
+						if ($tab['name'] == "on")
+							echo "<p>Hey : ".$nEpreuve." : ". $tab['nbBillet']."</p><br/>\n";
+					}
 					/*
 					if ($name == "on"){
 						//Ajout de autant de billets que demandés
@@ -77,7 +81,6 @@
 					*/
 				}
 				//oci_commit($lien);
-				*/
 			}
 		}
 		
