@@ -32,6 +32,8 @@
 	}
 	else{
 		echo "<p>Erreur d'arrivée ici</p>";
+		oci_free_statement($curseur);
+		include('pied.php');
 		return;
 	}
 	echo "<p>".$_SESSION['nUtil']."</p>";
@@ -47,6 +49,9 @@
 		// oci_execute a échoué, on affiche l'erreur
 		$error_message = oci_error($curseur);
 		echo "<p class=\"erreur\">{$error_message['message']}</p>";
+		oci_free_statement($curseur);
+		include('pied.php');
+		return;
 	}
 	else {
 		if (!oci_fetch($curseur))
@@ -55,7 +60,8 @@
 			$_SESSION['nDossier'] = oci_result($curseur,1);
 	}
 	
-	//On affiche les epreuves our la selection
+	echo "<p>".$_SESSION['nDossier']."</p>";
+	//On affiche les epreuves pour la selection
 	/*
 	if (!isset($_SESSION['nDossier'])){
 		echo "<p> Vous n'avez aucun numéro de dossier vous ne devez pas être là.</p>";
@@ -103,7 +109,7 @@
 			}
 		}
 	}
-	oci_free_statement($curseur);
 	*/
+	oci_free_statement($curseur);
 	include('pied.php');
 ?>
