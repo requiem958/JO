@@ -24,6 +24,7 @@
 
 		}
 		else {
+			echo "Bla 1";
 			$curseur = oci_parse($lien,'select max(nBillet)+1 from Lesbillets');
 			$ok = @oci_execute ($curseur) ;
 
@@ -41,6 +42,7 @@
 			}
 			
 			else {
+				echo "Bla 2";
 				if (!oci_fetch($curseur))
 					$nBillet = 0;
 				else
@@ -83,7 +85,7 @@
 		include('pied.php');
 		return;
 	}
-	oci_rollback($lien)
+	oci_rollback($lien);
 	//oci_commit($curseur);
 	oci_free_statement($curseur);
 
