@@ -4,7 +4,8 @@
 	include('entete.php');
 	
 	if(isset($_POST['validVente'])){
-		$requete = 'insert into LesDossiers_base values( :nDossier, :nUtil, sysdate() )';
+		echo $_SESSION['nDossier']." et ". $_SESSION['nUtil'];
+		$requete = 'INSERT INTO LesEquipes values (:nUtil,:nDossier,NULL)';
 		$curseur = oci_parse($lien,$requete);
 		oci_bind_by_name($curseur, ':nDossier', $_SESSION['nDossier']);
 		oci_bind_by_name($curseur, ':nUtil', $_SESSION['nUtil']);
