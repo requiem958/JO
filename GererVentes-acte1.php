@@ -27,7 +27,11 @@
 	else if (isset($_POST['nutil'])){
 		$_SESSION['nUtil'] = $_POST['nUtil'];
 	}
-
+	else{
+		echo "<p>Erreur d'arrivée ici</p>";
+		return;
+	}
+/*
 	//On récupère les numéros de dossier
 
 	$requete = 'select max(nDossier)+1 from LesDossiers_base';
@@ -95,4 +99,5 @@
 	else {
 		echo "<p> Vous n'avez aucun numéro de dossier.</p>":
 	}
+	*/
 ?>
