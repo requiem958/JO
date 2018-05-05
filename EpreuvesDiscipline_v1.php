@@ -2,7 +2,7 @@
 
 	$titre = 'Liste des épreuves associées au dossier 2 pour une discipline donnée, et nombre de billets pour chacune';
 	include('entete.php');
-
+	//creation du formulaire et de c'est différente valeur coder en brut 
     echo ("
           <form action=\"EpreuvesDiscipline_action.php\" method=\"POST\">
           <label for=\"inp_discipline\">Veuillez choisir une discipline :</label>

@@ -1,12 +1,12 @@
 <?php
 session_start();
+		// récupération des variables 
 	$nDossier =  $_SESSION['nDossier'] ;
-		// récupération de la catégorie
 	$discipline = $_POST['inp_discipline'];
 	$titre = "Liste des épreuves associées au dossier $nDossier pour la discipline $discipline, et nombre de billets pour chacune";
 	include('entete.php');
 
-	// construction de la requete
+	// construction de la requete permetant de sortir les billets corespondent à la discpline et au dossier fournie 
 	$requete = ("
 SELECT nepreuve, nome, to_char(dateepreuve, 'Day, DD-MM-YYYY'), count(*) 
 	FROM JO_INF245.LesBillets B natural join JO_INF245.Lesepreuves B join Lesdossiers using (ndossier) 	

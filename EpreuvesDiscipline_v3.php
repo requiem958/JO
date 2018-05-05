@@ -2,7 +2,7 @@
 	$titre = 'Liste des épreuves associées à un dossier donné pour une discipline donnée, et nombre de billets pour chacune';
 	include('entete.php');
 	
-  // construction de la requete
+  // construction de la requete permettant de récupérer la liste des dossiers 
 	$requete = ("
 		SELECT nDossier
 		FROM LesDossiers
@@ -33,7 +33,7 @@
 					<label for=\"sel_nDossier\">Sélectionnez un dossier :</label>
 					<select id=\"sel_nDossier\" name=\"nDossier\">
 			");
-			// création des options
+			// création des options des différents dossier 
 			do {
 
 				$nDossier = oci_result($curseur, 1);

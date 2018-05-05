@@ -5,7 +5,7 @@ session_start();
 	$_SESSION['nDossier']=$nDossier;
 	$titre = "Discpline liée au dossier $nDossier";
 	include('entete.php');
-	// construction de la requete
+	// construction de la requete permetant d'afficher les discpline liée au dossier 
 	$requete = ("
 		SELECT  distinct discipline FROM JO_INF245.LesBillets natural join JO_INF245.LesEpreuves join lesdossiers using(ndossier) WHERE nDossier = :n
 	");
@@ -29,7 +29,7 @@ $ok = @oci_execute ($curseur) ;
 			echo "<p class=\"erreur\"><b> Discipline inconnue </b></p>" ;
 		}
 		else {
-			// on affiche la liste
+			// on affiche la liste des discpline
 		echo ("
           <form action=\"EpreuvesDiscipline_v3_3.php\" method=\"POST\">
           <label for=\"inp_discipline\">Veuillez choisir une discipline :</label>
