@@ -9,7 +9,7 @@ $lesRelations = array ("LesBatiments", "LesDisciplines", "LesEpreuves", "LesEqui
 // définition des attributs
 $lesSchemas = array ("LesBatiments"  => array("nomBat","numero", "rue", "ville"),
              "LesDisciplines" => array ("discipline"),
-		     "LesEpreuves" => array("nEpreuve", "nomE", "forme", "discipline", "categorie", "nbs", "dateEpreuve"),
+		     "LesEpreuves" => array("nEpreuve", "nomE", "forme", "discipline", "categorie", "nbs", "dateEpreuve","prix"),
 		     "LesEquipes" => array("nEquipe", "nSportif"),
 		     "LesInscriptions" => array("nInscrit", "nEpreuve"),
 		     "LesLocataires" => array("nSportif", "nLogement", "nomBat"),

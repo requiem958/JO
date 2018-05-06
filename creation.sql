@@ -14,12 +14,6 @@ drop table LesEquipes;
 drop table LesDisciplines;
 drop table LesBatiments;
 
-create view LesDossiers(nDossier,nUtil,dateEmission,prix) as
-	select nDossier, nUtil, dateEmission, sum(prix) as prix
-	from JO_INF245.LesDossiers_base natural join JO_INF245.lesBillets natural join
-		JO_INF245.lesEpreuves
-	group by nDossier, nUtil, dateEmission;
-
 --Creation de tables
 
 create table LesSportifs(
@@ -118,5 +112,13 @@ create table LesBillets(
 	constraint ref_Epreuvelesbillets foreign key (nEpreuve) references LesEpreuves(nEpreuve)
 	);
 insert into LesBillets (select * from JO_INF245.LesBillets);
+
+
+--Création de la vue
+create view LesDossiers(nDossier,nUtil,dateEmission,prix) as
+	select nDossier, nUtil, dateEmission, sum(prix) as prix
+	from LesDossiers_base natural join lesBillets natural join
+		lesEpreuves
+	group by nDossier, nUtil, dateEmission;
 
 commit;
